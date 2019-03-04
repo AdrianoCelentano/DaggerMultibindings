@@ -9,6 +9,8 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
 
+    fun inject(mainActivity: MainActivity)
+
     @Component.Builder
     interface Builder {
 
