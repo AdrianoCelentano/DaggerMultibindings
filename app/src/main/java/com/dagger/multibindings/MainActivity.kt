@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadData(): List<FilterData> {
-        val redFilter = FilterData(id = 1, displayName = "red")
-        val yellowFilter = FilterData(id = 2, displayName = "yellow")
-        val blueFilter = FilterData(id = 3, displayName = "blue")
-        val filterList = listOf(redFilter, yellowFilter, blueFilter)
+        val redFilter = FilterData(id = "1", displayName = "red")
+        val greenFilter = FilterData(id = "2", displayName = "green")
+        val blueFilter = FilterData(id = "3", displayName = "blue")
+        val filterList = listOf(redFilter, greenFilter, blueFilter)
         return filterList
     }
 }

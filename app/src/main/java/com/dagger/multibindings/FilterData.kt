@@ -1,6 +1,6 @@
 package com.dagger.multibindings
 
 data class FilterData(
-    val id: Int,
+    val id: String,
     val displayName: String
 )

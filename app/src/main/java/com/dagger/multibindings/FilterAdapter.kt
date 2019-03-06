@@ -6,7 +6,7 @@ import com.dagger.multibindings.delegates.FilterAdapterDelegate
 import javax.inject.Inject
 
 class FilterAdapter @Inject constructor(
-    private val adapterDelegates: Map<Int, FilterAdapterDelegate>
+    private val adapterDelegates: Map<Int, @JvmSuppressWildcards FilterAdapterDelegate>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var filterDataList: List<FilterData> = emptyList()
@@ -18,8 +18,9 @@ class FilterAdapter @Inject constructor(
     override fun getItemViewType(position: Int): Int {
         val filterData = filterDataList.get(position)
         return adapterDelegates.values
-            .first { it.isForViewType(filterData) }
-            .viewType
+            .firstOrNull { it.isForViewType(filterData) }
+            ?.viewType
+            ?: throw IllegalArgumentException("No adapter delegate found")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
