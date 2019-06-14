@@ -2,15 +2,15 @@ package com.dagger.multibindings.delegates
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dagger.multibindings.FilterData
+import com.dagger.multibindings.ShapeData
 
-interface FilterAdapterDelegate {
+interface ShapeDelegate {
 
     val viewType: Int
 
-    fun isForViewType(filterData: FilterData): Boolean
+    fun isForViewType(shapeData: ShapeData): Boolean
 
     fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder
 
-    fun onBindViewHolder(filterData: FilterData, holder: RecyclerView.ViewHolder)
+    fun onBindViewHolder(shapeData: ShapeData, holder: RecyclerView.ViewHolder)
 }

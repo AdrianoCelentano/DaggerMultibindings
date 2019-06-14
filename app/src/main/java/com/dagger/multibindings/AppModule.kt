@@ -2,10 +2,10 @@ package com.dagger.multibindings
 
 import android.app.Application
 import android.content.Context
-import com.dagger.multibindings.delegates.BlueFilterDelegate
-import com.dagger.multibindings.delegates.FilterAdapterDelegate
-import com.dagger.multibindings.delegates.GreenFilterDelegate
-import com.dagger.multibindings.delegates.RedFilterDelegate
+import com.dagger.multibindings.delegates.CircleDelegate
+import com.dagger.multibindings.delegates.RectangleDelegate
+import com.dagger.multibindings.delegates.ShapeDelegate
+import com.dagger.multibindings.delegates.TriangleDelegate
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -17,6 +17,7 @@ object AppModule {
     @Provides
     @JvmStatic
     fun providesContext(application: Application): Context = application.applicationContext
+
 }
 
 @Module
@@ -24,16 +25,16 @@ interface AppBindsModule {
 
     @Binds
     @IntoMap
-    @FilterMapKey(RedFilterDelegate.RED_FILTER_VIEW_TYPE)
-    fun provideRedFilterDelegate(redFilterDelegate: RedFilterDelegate): FilterAdapterDelegate
+    @ShapeKey(CircleDelegate.CIRCLE_VIEW_TYPE)
+    fun provideCircleDelegate(circleDelegate: CircleDelegate): ShapeDelegate
 
     @Binds
     @IntoMap
-    @FilterMapKey(GreenFilterDelegate.GREEN_FILTER_VIEW_TYPE)
-    fun provideGreenFilterDelegate(greenFilterDelegate: GreenFilterDelegate): FilterAdapterDelegate
+    @ShapeKey(TriangleDelegate.TRIANGLE_VIEW_TYPE)
+    fun provideTriangleDelegate(triangleDelegate: TriangleDelegate): ShapeDelegate
 
     @Binds
     @IntoMap
-    @FilterMapKey(BlueFilterDelegate.BLUE_FILTER_VIEW_TYPE)
-    fun provideBlueFilterDelegate(blueFilterDelegate: BlueFilterDelegate): FilterAdapterDelegate
+    @ShapeKey(RectangleDelegate.RECTANGLE_VIEW_TYPE)
+    fun providerectangleDelegate(rectangleDelegate: RectangleDelegate): ShapeDelegate
 }
